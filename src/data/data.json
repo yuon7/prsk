@@ -1,0 +1,32 @@
+{
+  "userId1": {
+    "formation1": {
+      "formationNumber": "1",
+      "leadingSkill": "150",
+      "internalValue": "730",
+      "overallPower": "32.9"
+    },
+    "formation2": {
+      "formationNumber": "2",
+      "leadingSkill": "160",
+      "internalValue": "740",
+      "overallPower": "33.0"
+    }
+  },
+  "userId2": {
+    "formation1": {
+      "formationNumber": "1",
+      "leadingSkill": "140",
+      "internalValue": "720",
+      "overallPower": "32.8"
+    }
+  },
+  "user1": {
+    "formation1": {
+      "formationNumber": 1,
+      "leadingSkill": 150,
+      "internalValue": 730,
+      "overallPower": 32.9
+    }
+  }
+}
