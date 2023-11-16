@@ -3,28 +3,38 @@ import path from 'path';
 
 const jsonFilePath = path.resolve(__dirname, '../../data/data.json');
 
-function readJsonFile(): any {
+function readJsonFile(): Record<string, any> {
   try {
     const rawData = fs.readFileSync(jsonFilePath, 'utf8');
     return JSON.parse(rawData);
   } catch (error) {
     console.error('Error reading the JSON file:', error);
-    return null;
+    return {}; // エラーが発生した場合は空のオブジェクトを返す
   }
 }
 
+
 export function updateJsonFile(userId: string, formationId: string, data: { formationNumber: number, leadingSkill: number, internalValue: number, overallPower: number }) {
-    const currentData = readJsonFile();
-    if (!currentData[userId]) {
-      currentData[userId] = {};
-    }
-    currentData[userId][formationId] = data;
-    try {
-      fs.writeFileSync(jsonFilePath, JSON.stringify(currentData, null, 2));
-    } catch (error) {
-      console.error('Error writing to the JSON file:', error);
-    }
+  const currentData = readJsonFile();
+  
+  if (!currentData[userId]) {
+    currentData[userId] = {};
   }
+
+  currentData[userId][formationId] = {
+    formationNumber: data.formationNumber,
+    leadingSkill: data.leadingSkill,
+    internalValue: data.internalValue,
+    overallPower: data.overallPower
+  };
+
+  try {
+    fs.writeFileSync(jsonFilePath, JSON.stringify(currentData, null, 2));
+  } catch (error) {
+    console.error('Error writing to the JSON file:', error);
+  }
+}
+
   
 
 const initialData = readJsonFile();

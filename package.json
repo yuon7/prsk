@@ -5,10 +5,11 @@
   "main": "index.js",
   "type":"commonjs",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp src/data/data.json build/data/",
     "start": "node build/index.js",
-    "dev": "tsc && node build/index.js"
-},
+    "dev": "tsc && cp src/data/data.json build/data/ && node build/index.js"
+  },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
